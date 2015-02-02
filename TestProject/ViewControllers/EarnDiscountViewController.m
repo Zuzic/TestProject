@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self addTermsButton];
+    [self addCrossButton];
+    
     [self.shareCodeButton setTitle:SHARE_CODE_BUTTON_TEXT forState:UIControlStateNormal];
     [self.sendToFriendsButton setTitle:SEND_TO_FRIENDS_BUTTON_TEXT forState:UIControlStateNormal];
     [self.enterCodeButton setTitle:ENTER_CODE_BUTTON_TEXT forState:UIControlStateNormal];
@@ -38,6 +41,16 @@
 
 
 #pragma mark - Action methods
+-(void) crossClick{
+    [super crossClick];
+    [[[UIAlertView alloc] initWithTitle:@"Hey" message:@"Cross button click" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show];
+}
+
+-(void) termsClick{
+    [super termsClick];
+    [self performSegueWithIdentifier:@"termsPush" sender:nil];
+}
+
 - (IBAction)shareCodeButtonClicked:(id)sender {
     NSArray * activityItems = @[[NSString stringWithFormat:@"Some initial text."], [NSURL URLWithString:@"http://www.google.com"]];
     

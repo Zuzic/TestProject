@@ -15,23 +15,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smA-CU-cRE">
-                        <rect key="frame" x="8" y="11" width="304" height="21"/>
+                        <rect key="frame" x="35" y="13" width="265" height="19"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckImage" translatesAutoresizingMaskIntoConstraints="NO" id="7AR-3o-6G6">
+                        <rect key="frame" x="8" y="13" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="UB7-Mv-00s"/>
+                            <constraint firstAttribute="height" constant="20" id="jd8-mE-57z"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="smA-CU-cRE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="4jI-Zt-aW2"/>
-                    <constraint firstItem="smA-CU-cRE" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9LZ-OD-eqI"/>
+                    <constraint firstItem="smA-CU-cRE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="4jI-Zt-aW2"/>
+                    <constraint firstItem="7AR-3o-6G6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="7eS-F4-82r"/>
+                    <constraint firstItem="smA-CU-cRE" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-12" id="9LZ-OD-eqI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="smA-CU-cRE" secondAttribute="bottom" constant="3" id="EHE-d7-gi9"/>
-                    <constraint firstItem="smA-CU-cRE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ewk-ez-Xdc"/>
+                    <constraint firstItem="7AR-3o-6G6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Zos-PN-qN1"/>
+                    <constraint firstItem="smA-CU-cRE" firstAttribute="leading" secondItem="7AR-3o-6G6" secondAttribute="trailing" constant="7" id="obe-Bb-h5H"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contactFullNameLabel" destination="smA-CU-cRE" id="fde-yi-w8L"/>
+                <outlet property="selectImageView" destination="7AR-3o-6G6" id="b1N-fn-yRb"/>
             </connections>
-            <point key="canvasLocation" x="435" y="447"/>
+            <point key="canvasLocation" x="435" y="445"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="uncheckImage" width="30" height="30"/>
+    </resources>
 </document>

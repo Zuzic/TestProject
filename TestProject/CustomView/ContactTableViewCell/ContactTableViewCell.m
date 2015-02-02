@@ -7,6 +7,11 @@
 //
 
 #import "ContactTableViewCell.h"
+@interface ContactTableViewCell()
+@property (strong, nonatomic) IBOutlet UIImageView *selectImageView;
+
+@end
+
 
 @implementation ContactTableViewCell
 
@@ -17,7 +22,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    self.selectImageView.image = selected ? [UIImage imageNamed:@"checkImage"] : [UIImage imageNamed:@"uncheckImage"];
 }
 
 @end

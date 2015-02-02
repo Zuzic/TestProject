@@ -23,6 +23,8 @@
 		56022EAC1A7EBDDE00D78E9F /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56022EAA1A7EBDDE00D78E9F /* ContactTableViewCell.m */; };
 		56022EAD1A7EBDDE00D78E9F /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56022EAB1A7EBDDE00D78E9F /* ContactTableViewCell.xib */; };
 		56022EB01A7EBF2D00D78E9F /* NSArray+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56022EAF1A7EBF2D00D78E9F /* NSArray+Filter.m */; };
+		56022EB31A8014A300D78E9F /* ConfirmCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56022EB21A8014A300D78E9F /* ConfirmCodeViewController.m */; };
+		56022EB61A8021D800D78E9F /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56022EB51A8021D800D78E9F /* TermsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,10 @@
 		56022EAB1A7EBDDE00D78E9F /* ContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		56022EAE1A7EBF2D00D78E9F /* NSArray+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Filter.h"; sourceTree = "<group>"; };
 		56022EAF1A7EBF2D00D78E9F /* NSArray+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Filter.m"; sourceTree = "<group>"; };
+		56022EB11A8014A300D78E9F /* ConfirmCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmCodeViewController.h; sourceTree = "<group>"; };
+		56022EB21A8014A300D78E9F /* ConfirmCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmCodeViewController.m; sourceTree = "<group>"; };
+		56022EB41A8021D800D78E9F /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
+		56022EB51A8021D800D78E9F /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,10 @@
 				56022E951A7E8EE600D78E9F /* SendDiscountViewController.m */,
 				56022E971A7EA3D600D78E9F /* BaseViewController.h */,
 				56022E981A7EA3D600D78E9F /* BaseViewController.m */,
+				56022EB11A8014A300D78E9F /* ConfirmCodeViewController.h */,
+				56022EB21A8014A300D78E9F /* ConfirmCodeViewController.m */,
+				56022EB41A8021D800D78E9F /* TermsViewController.h */,
+				56022EB51A8021D800D78E9F /* TermsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -327,8 +337,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56022EB61A8021D800D78E9F /* TermsViewController.m in Sources */,
 				56022E931A7E8ECE00D78E9F /* EnterCodeViewController.m in Sources */,
 				56022E991A7EA3D600D78E9F /* BaseViewController.m in Sources */,
+				56022EB31A8014A300D78E9F /* ConfirmCodeViewController.m in Sources */,
 				56022EAC1A7EBDDE00D78E9F /* ContactTableViewCell.m in Sources */,
 				56022E9D1A7EAB0A00D78E9F /* ContactManager.m in Sources */,
 				56022E901A7E8EB900D78E9F /* EarnDiscountViewController.m in Sources */,
@@ -530,6 +542,7 @@
 				56022E881A7E8AD900D78E9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56022E891A7E8AD900D78E9F /* Build configuration list for PBXNativeTarget "TestProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +551,7 @@
 				56022E8B1A7E8AD900D78E9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -46,18 +46,31 @@
     [self filterArrayByCity:CITY_NAME contactArray:contactArray callback:callback];
 }
 
--(NSArray*) searchByText:(NSString*)searchText array:(NSArray*)array{
-    NSArray *resultArray = [NSArray new];
-    
++(NSArray*) searchByText:(NSString*)searchText array:(NSArray*)array{
     if(array.count>1){
         NSArray *currentCityArray = [array objectAtIndex:0];
         NSArray *otherArray = [array objectAtIndex:1];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"city contains[cd] %@ OR firstName contains[cd] %@ OR lastName contains[cd] %@", searchText.lowercaseString, searchText.lowercaseString, searchText.lowercaseString];
+        NSArray *filteredArray = [currentCityArray filteredArrayUsingPredicate:predicate];
+        
+        currentCityArray = [NSArray new];
+        if(filteredArray.count>0){
+            currentCityArray = filteredArray;
+        }
+        
+        filteredArray = [otherArray filteredArrayUsingPredicate:predicate];
+        otherArray = [NSArray new];
+        
+        if(filteredArray.count>0){
+            otherArray = filteredArray;
+        }
+        
+        return @[currentCityArray, otherArray];
     }
     else{
-        
+        return @[[NSArray new], [NSArray new]];
     }
-    
-    return resultArray;
 }
 
 @end
