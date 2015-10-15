@@ -76,9 +76,17 @@
             contactModel.lastName = @"";
         }
         
+        ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
+        
+        if(emails){
+            CFStringRef currentEmailsValue = ABMultiValueCopyValueAtIndex(emails, 0);
+            contactModel.email = (__bridge NSString *)currentEmailsValue;
+            if(currentEmailsValue) CFRelease(currentEmailsValue);
+        }
+        CFRelease(emails);
         
         ABMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
-        
+
         if(addresses){
             for (CFIndex i = 0; i < ABMultiValueGetCount(addresses); i++) {
                 CFStringRef currentAddressLabel = ABMultiValueCopyLabelAtIndex(addresses, i);

@@ -235,31 +235,34 @@
 
 #pragma mark - send mail
 - (void)createEmail {
-    NSMutableString *emailBody = [[NSMutableString alloc] initWithString:@"<html><body>"];
-    [emailBody appendString:@"<p>Hey, I just want to send you this $5 off for this new food delivery service Fasibite, that now works in San Francisco</p>"];
-    UIImage *emailImage = [UIImage imageNamed:@"saleOffer"];
-    NSString *base64String = [self base64String:emailImage];
-    [emailBody appendString:[NSString stringWithFormat:@"<p><b><img src='data:image/png;base64,%@'></b></p>",base64String]];
-    [emailBody appendString:@"</body></html>"];
-    
-    //Create the mail composer window
-    MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] init];
-    emailDialog.mailComposeDelegate = self;
-    
-    NSMutableArray *recipients = [NSMutableArray new];
-    NSArray *selectedArray = [self.contactsTableView indexPathsForSelectedRows];
-    
-    for(NSIndexPath *contactPath in selectedArray){
-        ContactModel *contact = [[self.contactArray objectAtIndex:contactPath.section] objectAtIndex:contactPath.row];
+    if ([MFMailComposeViewController canSendMail]){
+        NSMutableString *emailBody = [[NSMutableString alloc] initWithString:@"<html><body>"];
+        [emailBody appendString:@"<p>Hey, I just want to send you this $5 off for this new food delivery service Fasibite, that now works in San Francisco</p>"];
+        UIImage *emailImage = [UIImage imageNamed:@"saleOffer"];
+        NSString *base64String = [self base64String:emailImage];
+        [emailBody appendString:[NSString stringWithFormat:@"<p><b><img src='data:image/png;base64,%@'></b></p>",base64String]];
+        [emailBody appendString:@"</body></html>"];
         
-        [recipients addObject:[NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName]];
+        //Create the mail composer window
+        MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] init];
+        emailDialog.mailComposeDelegate = self;
+        
+        NSMutableArray *recipients = [NSMutableArray new];
+        NSArray *selectedArray = [self.contactsTableView indexPathsForSelectedRows];
+        
+        for(NSIndexPath *contactPath in selectedArray){
+            ContactModel *contact = [[self.contactArray objectAtIndex:contactPath.section] objectAtIndex:contactPath.row];
+            
+            if(contact.email)
+                [recipients addObject:contact.email];
+        }
+        
+        [emailDialog setToRecipients:recipients];
+        [emailDialog setSubject:@"SEND DISCOUNT"];
+        [emailDialog setMessageBody:emailBody isHTML:YES];
+        
+        [self.navigationController presentViewController:emailDialog animated:YES completion:nil];
     }
-    
-    [emailDialog setToRecipients:recipients];
-    [emailDialog setSubject:@"SEND DISCOUNT"];
-    [emailDialog setMessageBody:emailBody isHTML:YES];
-    
-    [self.navigationController presentViewController:emailDialog animated:YES completion:nil];
 }
 
 - (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error

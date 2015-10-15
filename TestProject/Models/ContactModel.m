@@ -17,6 +17,7 @@
         self.firstName = @"";
         self.lastName = @"";
         self.city = @"";
+        self.email = @"test@test.com";
     }
     
     return self;
